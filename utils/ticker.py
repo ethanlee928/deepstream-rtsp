@@ -1,15 +1,30 @@
+from abc import ABC, abstractmethod
 from time import time
+
+from overrides import overrides
 
 from .functions import seconds_between
 
 
-class FPSticker:
+class Ticker(ABC):
     def __init__(self, interval: float) -> None:
+        if not isinstance(interval, (int, float)):
+            raise ValueError("Interval must be float")
         self.interval = interval
+
+    @abstractmethod
+    def tick(self) -> bool:
+        ...
+
+
+class FPSticker(Ticker):
+    def __init__(self, interval: float) -> None:
+        super().__init__(interval)
         self.fps = 0
         self.frame_count = 0
         self._time = time()
 
+    @overrides
     def tick(self) -> bool:
         self.frame_count += 1
         now = time()
