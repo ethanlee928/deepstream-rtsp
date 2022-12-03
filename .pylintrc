@@ -147,7 +147,8 @@ disable=print-statement,
         no-self-use,
         too-few-public-methods,
         missing-function-docstring,
-        missing-class-docstring
+        missing-class-docstring,
+        logging-fstring-interpolation        
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
