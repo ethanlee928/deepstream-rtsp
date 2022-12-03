@@ -1,0 +1,7 @@
+__pycache__
+*.tlt
+*.etlt
+*.engine
+*.mp4
+*.MOV
+*.mkv
